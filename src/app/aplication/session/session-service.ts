@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
-export class SessionService implements IAuthRepository {
+export class SessionService {
   constructor(
     private storage: IStorageRepository,
     private auth: IAuthRepository,
