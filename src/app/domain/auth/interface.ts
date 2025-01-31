@@ -19,4 +19,8 @@ export abstract class IAuthRepository {
   public abstract refreshToken(
     props: RefreshToken
   ): Observable<RefreshTokenApiResponse>;
+
+  public abstract getUserLogged(): void;
+
+  public abstract logout(): void;
 }

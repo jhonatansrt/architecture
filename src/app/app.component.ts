@@ -1,9 +1,9 @@
-import { SessionStore } from './aplication/session/session-store';
 import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { IonApp, IonRouterOutlet, Platform } from '@ionic/angular/standalone';
 import { Container } from './util/container.service';
 import { App } from '@capacitor/app';
 import { Router } from '@angular/router';
+import { SessionService } from './aplication/session/session-service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     private container: Container,
     private platform: Platform,
     private router: Router,
-    private sessionStore: SessionStore
+    private sessionService: SessionService
   ) {
     this.platform.backButton.subscribeWithPriority(-1, () => {
       if (this.router.url === '/' || this.router.url === '/login') {
@@ -29,6 +29,6 @@ export class AppComponent implements OnInit {
 
   async ngOnInit() {
     this.container.vcr = this.vcr;
-    this.sessionStore.getUserLogged();
+    this.sessionService.getUserLogged();
   }
 }

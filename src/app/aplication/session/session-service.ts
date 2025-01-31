@@ -35,7 +35,7 @@ export class SessionService implements IAuthRepository {
           this.storage.setStorage('token', resp.token);
           this.storage.setStorage('refreshToken', resp.refresh_token);
           this.storage.setStorage('userLogged', resp.user);
-          this.sessionStore.getUserLogged();
+          this.getUserLogged();
           this.router.navigate(['/home']);
         })
       );
@@ -45,5 +45,19 @@ export class SessionService implements IAuthRepository {
     props: RefreshToken
   ): Observable<RefreshTokenApiResponse> {
     return this.auth.refreshToken(props);
+  }
+
+  public async getUserLogged() {
+    const userLogged = await this.storage.getStorage('userLogged');
+
+    if (userLogged) {
+      this.sessionStore.set('userLogged', userLogged);
+    }
+  }
+
+  public logout() {
+    this.sessionStore.clear();
+    this.storage.clearAll();
+    this.router.navigate(['/login']);
   }
 }
