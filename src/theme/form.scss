@@ -1,0 +1,80 @@
+form {
+  width: 100%;
+  gap: 24px;
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid var(--white);
+    background-color: transparent;
+    border-radius: 3px;
+    outline: none;
+    color: var(--white);
+    appearance: none;
+    z-index: 1;
+
+    option {
+      background-color: var(--black);
+    }
+
+    &::placeholder {
+      color: var(--white);
+    }
+
+    &:disabled {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  textarea {
+    min-height: 140px;
+  }
+
+  .item-content {
+    position: relative;
+
+    select {
+      padding: 16px 36px 16px 16px;
+      text-transform: capitalize;
+
+      option {
+        text-transform: capitalize;
+      }
+    }
+
+    ion-icon {
+      color: var(--white);
+      position: absolute;
+      top: 18px;
+      right: 10px;
+    }
+  }
+
+  .input-floating {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    label {
+      position: absolute;
+      padding: 0 16px;
+      left: 1px;
+      transition: 0.2s ease;
+    }
+  }
+
+  .input-floating input:valid + label,
+  .input-floating select:valid + label,
+  .input-floating input:focus + label,
+  .input-floating select:focus + label {
+    transform: translateY(-28px) translateX(9px);
+    background-color: var(--black);
+    left: 0px !important;
+    padding: 0 8px;
+    z-index: 2;
+    font-size: 12px;
+  }
+}

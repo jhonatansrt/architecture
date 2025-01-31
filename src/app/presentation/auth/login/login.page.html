@@ -1,0 +1,52 @@
+<ion-content [fullscreen]="true">
+  <section class="flex flex-column justify-between items-center">
+    <article class="flex flex-column items-center">
+      <img src="/assets/mtv.png" alt="logo" />
+
+      <form [formGroup]="formCreateSession" class="flex flex-column">
+        <div class="input-floating">
+          <input
+            [(ngModel)]="propsCreateSession.email"
+            formControlName="email"
+            type="text"
+            required
+          />
+
+          <label>E-mail</label>
+        </div>
+
+        <span class="flex flex-column items-end">
+          <div class="flex items-center">
+            <div class="input-floating">
+              <input
+                [type]="showPassword ? 'text' : 'password'"
+                [(ngModel)]="propsCreateSession.password"
+                formControlName="password"
+                required
+              />
+
+              <label>Senha</label>
+            </div>
+
+            <ion-icon
+              (click)="showPassword = !showPassword"
+              [name]="showPassword ? 'eye' : 'eye-off'"
+            ></ion-icon>
+          </div>
+
+          <a>Esqueceu a senha?</a>
+        </span>
+      </form>
+
+      <button
+        [disabled]="!formCreateSession.valid"
+        (click)="login()"
+        class="btn btn-green"
+      >
+        Entrar
+      </button>
+    </article>
+
+    <h5>Não tem conta? <a>cadastre-se</a></h5>
+  </section>
+</ion-content>

@@ -1,0 +1,35 @@
+.btn {
+  padding: 16px 20px;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  line-height: 1;
+  user-select: none;
+  box-shadow: 0 2px 5px 0 rgba($color: var(--black), $alpha: 0.3);
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+
+  &[disabled] {
+    opacity: 0.5;
+    transform: none !important;
+    cursor: auto;
+  }
+
+  &:active {
+    transform: scale(0.95);
+    box-shadow: 0 1px 3px 0 rgba($color: var(--black), $alpha: 0.1);
+  }
+}
+
+.btn-green {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.btn-white {
+  background-color: var(--white);
+  color: var(--black);
+}

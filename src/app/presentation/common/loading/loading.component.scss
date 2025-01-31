@@ -1,0 +1,43 @@
+section {
+  width: 100%;
+  height: -moz-available;
+  height: -webkit-fill-available;
+  height: fill-available;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba($color: #1f2223, $alpha: 0.9);
+  z-index: 9999999999;
+  gap: 15px;
+
+  article {
+    gap: 10px;
+    position: relative;
+
+    img {
+      object-fit: cover;
+      animation: changeColor 2s linear both;
+    }
+
+    .removeAnimation {
+      animation: none !important;
+    }
+
+    h1 {
+      font-weight: 500;
+      font-size: 15px;
+    }
+  }
+}
+
+@keyframes changeColor {
+  from {
+    filter: grayscale(1);
+  }
+
+  to {
+    filter: none;
+  }
+}

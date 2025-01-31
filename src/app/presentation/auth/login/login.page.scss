@@ -1,0 +1,48 @@
+section {
+  min-height: 100%;
+  padding: 40px 24px;
+
+  article {
+    width: 100%;
+    gap: 58px;
+
+    img {
+      height: 103px;
+    }
+
+    form {
+      span {
+        gap: 12px;
+        width: 100%;
+
+        div {
+          width: 100%;
+          position: relative;
+
+          ion-icon {
+            position: absolute;
+            right: 16px;
+            font-size: 20px;
+          }
+
+          input {
+            padding: 16px 46px 16px 16px;
+
+            &:nth-of-type(1) {
+              padding: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  h5 {
+    font-size: 14px;
+  }
+
+  a {
+    color: var(--green);
+    font-size: 14px;
+  }
+}
