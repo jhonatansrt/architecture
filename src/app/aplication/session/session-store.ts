@@ -1,18 +1,10 @@
-import { Injectable } from '@angular/core';
-import { StoreService } from '../store.service';
-import { SessionState } from './types';
+import { Injectable, signal, WritableSignal } from '@angular/core';
+import { User } from 'src/app/domain/auth';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SessionStore extends StoreService<SessionState> {
-  constructor() {
-    super();
-  }
-
-  protected override getInitialState(): SessionState {
-    return {
-      userLogged: null,
-    };
-  }
+export class SessionStore {
+  public readonly userLogged: WritableSignal<User | undefined> =
+    signal(undefined);
 }

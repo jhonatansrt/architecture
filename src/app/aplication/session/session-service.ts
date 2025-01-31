@@ -51,13 +51,16 @@ export class SessionService implements IAuthRepository {
     const userLogged = await this.storage.getStorage('userLogged');
 
     if (userLogged) {
-      this.sessionStore.set('userLogged', userLogged);
+      this.sessionStore.userLogged.set(userLogged);
     }
   }
 
   public logout() {
-    this.sessionStore.clear();
     this.storage.clearAll();
     this.router.navigate(['/login']);
+  }
+
+  public clear() {
+    this.sessionStore.userLogged.set(undefined);
   }
 }
